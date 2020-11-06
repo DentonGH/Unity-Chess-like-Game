@@ -1,0 +1,41 @@
+tree("Root")
+	parallel
+		repeat mute tree("fourth")
+		repeat mute tree("third")
+
+tree("first")
+	sequence
+		CanIUpgrade
+		UpgradeTheUnit
+
+tree("second")
+	sequence
+		CanIBuyUnits
+		BuyTheUnit
+
+tree("third")
+	while TurBende
+		sequence
+			fallback
+				UpgradeDone
+				BuyUnitsDone
+			Wait(0.6)
+			HangiUnitOynasınTeam
+
+
+tree("fourth")
+	while TurBende
+		while not UpgradeDone
+			while not BuyUnitsDone
+				fallback
+					while WillUpgrade
+						sequence
+							GatherGold
+							tree("first")
+							MakeUpgradeDone
+
+					while not WillUpgrade
+						sequence
+							GatherGold
+							tree("second")
+							MakeBuyUnitDone

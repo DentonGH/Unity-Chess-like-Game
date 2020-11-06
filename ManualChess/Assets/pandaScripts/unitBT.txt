@@ -1,0 +1,25 @@
+tree("Root")
+	parallel
+		repeat mute tree("first")
+		repeat mute tree("second")
+
+
+
+tree("first")
+	while IsOtherJobsDone
+			while IsTurHakkıPermissionGiven
+				while IsiznimVarPermissionGiven
+					sequence
+						TileScoreMaker
+						PickDestination
+						MovetoDestination
+						AttackTarget
+						GiveTurHakkıPermission(false)
+
+			
+
+tree("second")
+	while IsHealthLessThan(1.0)
+		sequence
+			Die
+		
